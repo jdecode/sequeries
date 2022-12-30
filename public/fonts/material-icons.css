@@ -6,7 +6,7 @@
   src: url("./material-icons-outlined.woff2") format("woff2");
 }
 .material-icons-outlined {
-  font-family: "Material Icons Outlined";
+  font-family: "Material Icons Outlined", emoji;
   font-weight: normal;
   font-style: normal;
   letter-spacing: normal;
