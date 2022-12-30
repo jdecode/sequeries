@@ -12,7 +12,7 @@ git clone git@github.com:jdecode/sequeries.git \
 http://221.230.1.1
 ```
 
-## Subsequent Run : E.g. after system restart (if the container is not up already)
+## Subsequent Run : E.g. after clone/system-restart (if the container is not up already)
 ```
 docker-compose up -d
 ```
