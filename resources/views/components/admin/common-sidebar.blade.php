@@ -63,7 +63,7 @@
                 hidden md:block"
             x-cloak
             x-show="!sidebarCollapsed"
-            @click="sidebarCollapsed = true"
+            @click="$dispatch('collapse-sidebar');"
             title="Shift + left-arrow to collapse / Shift + right-arrow to expand"
             >
             <span class="material-icons-outlined text-xl">arrow_back</span>
@@ -74,7 +74,7 @@
                 flex items-center cursor-pointer
                 border border-l-0 border-r-0 border-b-0 border-t-1 border-gray-500/50
                 hidden md:block
-            " x-cloak x-show="sidebarCollapsed" @click="sidebarCollapsed = false">
+            " x-cloak x-show="sidebarCollapsed" @click="$dispatch('uncollapse-sidebar');">
             <span
                 class="material-icons-outlined text-xl"
             >arrow_forward</span>

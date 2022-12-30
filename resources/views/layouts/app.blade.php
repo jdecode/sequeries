@@ -21,9 +21,11 @@
                         sidebarCollapsed: false,
                         collapseSidebar() {
                             this.sidebarCollapsed = true
+                            localStorage.sidebarState = 'hide';
                         },
                         uncollapseSidebar() {
                             this.sidebarCollapsed = false
+                            localStorage.sidebarState = 'show';
                         },
                         notification_show: false,
                         notification_success: false,
@@ -43,7 +45,7 @@
                             document.documentElement.classList.toggle('dark');
                             localStorage.dark = !JSON.parse(localStorage.dark);
                         },
-                        initMode(defaultMode = '') {
+                        initMode(defaultMode = 'dark') {
                             if (localStorage.getItem('dark')) {
                                 if(localStorage.dark === 'true') {
                                     document.documentElement.classList.add('dark');
@@ -58,11 +60,31 @@
                             if(defaultMode !== 'dark') {
                                 document.documentElement.classList.remove('dark');
                             }
+                        },
+                        initSidebar(defaultState = 'show') {
+                            if (localStorage.getItem('sidebarState')) {
+                                if(localStorage.sidebarState === 'show') {
+                                    this.uncollapseSidebar();
+                                    return;
+                                }
+                                this.collapseSidebar();
+                                return;
+                            }
+                            localStorage.sidebarState = 'show';
+                            if(defaultState !== 'show') {
+                                this.collapseSidebar();
+                            }
+                        },
+                        initSetup(defaultMode = 'dark', defaultState = 'show') {
+                            this.initMode(defaultMode);
+                            this.initSidebar(defaultState);
                         }
                     }"
-            x-init="initMode()"
+            x-init="initSetup()"
             @keydown.shift.left.document="collapseSidebar()"
             @keydown.shift.right.document="uncollapseSidebar()"
+            x-on:collapse-sidebar="collapseSidebar()"
+            x-on:uncollapse-sidebar="uncollapseSidebar()"
             x-on:open-notification="openNotification($event.detail.content)"
             x-on:close-notification="closeNotification()"
             x-on:toggle-dark-mode="toggleDarkMode()"
