@@ -1,8 +1,8 @@
 {
-    "name": "jdecode/xdev",
+    "name": "jdecode/sequeries",
     "type": "boilerplate",
     "description": "Laravel Boilerplate for 10x developer",
-    "keywords": ["jdecode", "xdev", "laravel"],
+    "keywords": ["jdecode", "sequeries", "laravel"],
     "license": "MIT",
     "require": {
         "php": "^8.1",
@@ -75,7 +75,7 @@
         "phpunit": "vendor/bin/phpunit --color=always",
         "pest": "vendor/bin/pest --stop-on-failure --parallel",
         "routes": "@php artisan route:list --except-vendor",
-        "chmoder" : "chmod -R 777 storage bootstrap /usr/lib/node_modules /usr/bin && chown -R 1001:1001 /usr/lib/node_modules /usr/bin/",
+        "chmoder" : "chmod -R 777 storage bootstrap /usr/lib/node_modules /usr/bin && chown -R 1230:1230 /usr/lib/node_modules /usr/bin/",
         "clear": [
             "@php artisan config:clear",
             "@php artisan route:clear",
@@ -132,13 +132,13 @@
                 ]
             },
             "pre-commit": [
-                "docker-compose exec -T xdev-api composer run pre-commit"
+                "docker-compose exec -T sequeries-api composer run pre-commit"
             ],
             "pre-push": [
-                "docker-compose exec -T xdev-api composer run pre-push"
+                "docker-compose exec -T sequeries-api composer run pre-push"
             ],
             "post-merge": [
-                "docker-compose exec -T xdev-api composer run post-merge"
+                "docker-compose exec -T sequeries-api composer run post-merge"
             ]
         }
     },
