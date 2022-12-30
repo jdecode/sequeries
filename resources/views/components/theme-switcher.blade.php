@@ -75,31 +75,10 @@
                 </a>
             @endif
             @if($theme_switcher)
-                <div onclick="toggleDark()" title="Toggle dark/light mode : Shift+D" class="cursor-pointer pl-2 pt-1">
+                <div @click="$dispatch('toggle-dark-mode');" title="Toggle dark/light mode : Shift+D" class="cursor-pointer pl-2 pt-1">
                     <span class="material-icons-outlined text-3xl text-gray-500">brightness_6</span>
                 </div>
             @endif
         </div>
     </div>
 </div>
-<script>
-    function toggleDark() {
-        document.documentElement.classList.toggle('dark');
-        localStorage.dark = !JSON.parse(localStorage.dark);
-    }
-
-    if (localStorage.dark !== 'undefined') {
-        if(localStorage.dark === 'true') {
-            document.documentElement.classList.add('dark');
-            localStorage.dark = true;
-        } else {
-            document.documentElement.classList.remove('dark');
-            localStorage.dark = false;
-        }
-    }
-    document.addEventListener('keydown', (event) => {
-        if(event.shiftKey && (event.key === 'd' || event.key === 'D')) {
-            toggleDark();
-        }
-    });
-</script>

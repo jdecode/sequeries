@@ -38,12 +38,34 @@
                         },
                         closeNotification() {
                             this.notification_show = false
+                        },
+                        toggleDarkMode() {
+                            document.documentElement.classList.toggle('dark');
+                            localStorage.dark = !JSON.parse(localStorage.dark);
+                        },
+                        initMode(defaultMode = '') {
+                            if (localStorage.getItem('dark')) {
+                                if(localStorage.dark === 'true') {
+                                    document.documentElement.classList.add('dark');
+                                    localStorage.dark = true;
+                                    return;
+                                }
+                                document.documentElement.classList.remove('dark');
+                                localStorage.dark = false;
+                                return;
+                            }
+                            localStorage.dark = defaultMode === 'dark';
+                            if(defaultMode !== 'dark') {
+                                document.documentElement.classList.remove('dark');
+                            }
                         }
                     }"
+            x-init="initMode()"
             @keydown.shift.left.document="collapseSidebar()"
             @keydown.shift.right.document="uncollapseSidebar()"
             x-on:open-notification="openNotification($event.detail.content)"
             x-on:close-notification="closeNotification()"
+            x-on:toggle-dark-mode="toggleDarkMode()"
             >
             @auth
                 <x-admin.mobile-sidebar></x-admin.mobile-sidebar>
@@ -80,9 +102,9 @@
                     x-init="$dispatch('open-notification', {content: '{{ session('flash-notification') }}' } )">
                 </div>
             @endif
-        </div>
-        <div class="absolute top-0 right-24 z-10">
-            <x-theme-switcher helper_icons="true"></x-theme-switcher>
+            <div class="absolute top-0 right-24 z-10">
+                <x-theme-switcher helper_icons="true"></x-theme-switcher>
+            </div>
         </div>
         <x-footer></x-footer>
     </body>
