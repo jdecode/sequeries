@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title> {{ config('app.name', 'Laravel') }}</title>
+        <link rel="icon" href="{{ asset('favicon.svg') }}" type="image/x-icon"/>
         <link rel="stylesheet" href="{{ asset('fonts/material-icons.css') }}" />
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <style>
