@@ -14,7 +14,7 @@ services:
       - "1230:80"
       - "1231:1231"
     environment:
-      APP_NAME: 'Laravel boilerplate for 10x (passionate) developers'
+      APP_NAME: 'Sequeries'
       APP_DEBUG: 'true'
       APP_URL: 'http://221.230.1.1'
       DB_CONNECTION: 'pgsql'

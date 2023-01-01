@@ -7,6 +7,7 @@
         <title> {{ config('app.name', 'Laravel') }}</title>
         <link rel="icon" href="{{ asset('favicon.svg') }}" type="image/x-icon"/>
         <link rel="stylesheet" href="{{ asset('fonts/material-icons.css') }}" />
+        <link rel="stylesheet" href="{{ asset('fonts/octicons.css') }}" />
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <style>
             [x-cloak] { display: none !important; }
@@ -28,21 +29,13 @@
             <span>{{ config('app.name') }}</span>
             <div class="mt-8 text-base">
                 <div>
-                    <a href="{{route('api.v1')}}">
-                        API base URL<br />
-                        <span class="text-dev-500">{{route('api.v1')}}</span>
-                    </a>
-                    <a href="{{ route('api.v1') }}" target="_blank" class="text-dev-500">
-                        <span class="material-icons-outlined">open_in_new</span>
-                    </a>
-                </div>
-                <div class="mt-4">
-                    <a href="{{route('admin.loginForm')}}">
-                        Admin Login:<br />
-                        <span class="text-dev-500">{{route('admin.loginForm')}}</span>
-                    </a>
-                    <a href="{{ route('admin.loginForm') }}" target="_blank" class="text-dev-500">
-                        <span class="material-icons-outlined">open_in_new</span>
+                    <a href="{{route('auth.github.login')}}" class="">
+                        <span class="text-black bg-white p-3 m-2 rounded-lg font-bold flex items-center justify-between">
+                            <i class="octicon-mark-github-16 pt-1 px-1 text-xl"></i>
+                            <span class="pl-1">
+                                Login with GitHub
+                            </span>
+                        </span>
                     </a>
                 </div>
             </div>
