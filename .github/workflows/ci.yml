@@ -3,12 +3,12 @@ name: CI checks
 on:
   push:
     paths:
-      - '**/.php'
-      - '**/.yml'
-      - '**/.yaml'
-      - '**/.json'
-      - '**/.sh'
-      - '.env.*'
+#      - '**/.php'
+#      - '**/.yml'
+#      - '**/.yaml'
+#      - '**/.json'
+#      - '**/.sh'
+#      - '.env.*'
       - 'terraform/**'
 
 jobs:
