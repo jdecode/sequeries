@@ -19,7 +19,6 @@ services:
       APP_URL: 'http://221.230.1.1'
       DB_CONNECTION: 'pgsql'
       QUEUE_CONNECTION: 'database'
-      XDEBUG_CONFIG: "mode=debug,coverage,develop client_host=host.docker.internal discover_client_host=1 start_with_request=yes"
       GITHUB_USERNAME: 'jdecode'
       GITHUB_REPONAME: 'sequeries'
       GITHUB_CALLBACK: '/auth/github/callback'
