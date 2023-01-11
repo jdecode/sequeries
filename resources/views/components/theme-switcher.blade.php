@@ -6,7 +6,7 @@
     $theme_switcher = filter_var($theme_switcher ?? true, FILTER_VALIDATE_BOOLEAN);
 @endphp
 <div>
-    <div class="focus:outline-none p-1 ">
+    <div class="focus:outline-none">
         <div class="flex items-center min-w-6 mr-2 ">
             @if(config('app.env') == 'local' && $helper_icons)
                 <a
@@ -73,11 +73,6 @@
                                 class="fill-primary"></path></svg>
                     </span>
                 </a>
-            @endif
-            @if($theme_switcher)
-                <div @click="$dispatch('toggle-dark-mode');" title="Toggle dark/light mode : Shift+D" class="cursor-pointer pl-2 pt-1">
-                    <span class="material-icons-outlined text-3xl text-gray-500">brightness_6</span>
-                </div>
             @endif
         </div>
     </div>
