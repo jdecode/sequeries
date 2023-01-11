@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Log;
+use ProtoneMedia\Splade\SpladeCore;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -37,5 +38,6 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             Log::info($e->getMessage());
         });
+        $this->renderable(SpladeCore::exceptionHandler($this));
     }
 }
